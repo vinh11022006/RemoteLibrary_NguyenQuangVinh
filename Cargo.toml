@@ -1,0 +1,21 @@
+# Cargo.toml
+[package]
+name = "fan_rewards_nft_market"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+soroban-sdk = "21.2.0"  # dùng phiên bản mới ổn định tương thích Soroban
+
+[dev-dependencies]
+soroban-sdk = { version = "21.2.0", features = ["testutils"] }
+
+[profile.release]
+opt-level = "s"
+codegen-units = 1
+lto = true
+strip = true
